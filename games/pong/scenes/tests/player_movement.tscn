@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://tjlshdsfsdla"]
+[gd_scene load_steps=3 format=3 uid="uid://tjlshdsfsdla"]
+
+[ext_resource type="PackedScene" uid="uid://pe5kw6dt7xyi" path="res://games/pong/scenes/player/player.tscn" id="1_b6cao"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wow5j"]
 
 [node name="PlayerMovement" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_b6cao")]
+position = Vector2(50, 360)
+
+[node name="ScreenBoundaries" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(640, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_wow5j")
+
+[node name="Bottom" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(640, 720)
+shape = SubResource("WorldBoundaryShape2D_wow5j")
+
+[node name="Left" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(0, 360)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_wow5j")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(1280, 360)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_wow5j")

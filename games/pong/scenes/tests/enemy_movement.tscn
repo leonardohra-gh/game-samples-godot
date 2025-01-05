@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://vwoa5h1dv3jr"]
+
+[ext_resource type="PackedScene" uid="uid://j2plfxmkew2j" path="res://games/pong/scenes/opponent/opponent.tscn" id="1_7p4uh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6vl1s"]
+
+[node name="EnemyMovement" type="Node2D"]
+
+[node name="ScreenBoundaries" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(640, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_6vl1s")
+
+[node name="Bottom" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(640, 720)
+shape = SubResource("WorldBoundaryShape2D_6vl1s")
+
+[node name="Left" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(0, 360)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_6vl1s")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(1280, 360)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_6vl1s")
+
+[node name="Opponent" parent="." node_paths=PackedStringArray("node_to_follow") instance=ExtResource("1_7p4uh")]
+position = Vector2(1228, 350)
+node_to_follow = NodePath("../Node2D")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(697, 146)
