@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsami6xksrn0v"]
+
+[ext_resource type="PackedScene" uid="uid://bq6ilma8c4lul" path="res://games/pong/scenes/screen_boundaries/boundaries_1280_720.tscn" id="1_g7m7n"]
+
+[node name="ScreenBoundaries" instance=ExtResource("1_g7m7n")]

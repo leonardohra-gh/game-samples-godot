@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq6ilma8c4lul"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nd40g"]
+
+[node name="ScreenBoundaries" type="StaticBody2D"]
+
+[node name="Top" type="CollisionShape2D" parent="."]
+position = Vector2(640, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_nd40g")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+position = Vector2(640, 720)
+shape = SubResource("WorldBoundaryShape2D_nd40g")
+
+[node name="Left" type="CollisionShape2D" parent="."]
+position = Vector2(0, 360)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_nd40g")
+
+[node name="Right" type="CollisionShape2D" parent="."]
+position = Vector2(1280, 360)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_nd40g")
