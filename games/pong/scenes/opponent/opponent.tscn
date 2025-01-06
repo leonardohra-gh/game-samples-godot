@@ -9,3 +9,4 @@ script = ExtResource("2_c2mq5")
 
 [node name="Behavior" parent="Movement" index="0"]
 script = ExtResource("3_tticg")
+tolerance = 10.0
