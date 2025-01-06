@@ -35,6 +35,8 @@ func _on_body_exited(body: PhysicsBody2D) -> void:
 	if body.is_in_group("paddle"):
 		speed *= 1.1
 		if speed > max_speed: speed = max_speed
+		var paddle: Paddle = body as Paddle
+		paddle.reset_x()
 		redirect_ball()
 		
 func redirect_ball():

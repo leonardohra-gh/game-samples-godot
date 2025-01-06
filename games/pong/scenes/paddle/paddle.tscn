@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://8hyl1lblos4u"]
+[gd_scene load_steps=6 format=3 uid="uid://8hyl1lblos4u"]
 
+[ext_resource type="Script" path="res://games/pong/scenes/paddle/paddle.gd" id="1_6hax0"]
 [ext_resource type="Texture2D" uid="uid://uffmtxdfnqop" path="res://games/pong/scenes/paddle/paddle.png" id="1_uy3dc"]
 [ext_resource type="Script" path="res://games/pong/scripts/movement/movement_2d.gd" id="2_c3c6r"]
 [ext_resource type="Script" path="res://games/pong/scripts/movement/movement_behavior.gd" id="3_edsb8"]
@@ -9,6 +10,7 @@ size = Vector2(25, 100)
 
 [node name="Paddle" type="CharacterBody2D" groups=["paddle"]]
 motion_mode = 1
+script = ExtResource("1_6hax0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_a7w3k")

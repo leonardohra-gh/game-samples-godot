@@ -1,4 +1,5 @@
-extends CharacterBody2D
+class_name Opponent
+extends Paddle
 
 @export var node_to_follow: Node2D
 @onready var movement: Movement2D = $Movement
