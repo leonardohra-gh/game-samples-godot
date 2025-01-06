@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://tokah6duorkp"]
+
+[ext_resource type="PackedScene" uid="uid://pe5kw6dt7xyi" path="res://games/pong/scenes/player/player.tscn" id="1_7eo5l"]
+[ext_resource type="PackedScene" uid="uid://j2plfxmkew2j" path="res://games/pong/scenes/opponent/opponent.tscn" id="2_wecct"]
+[ext_resource type="PackedScene" uid="uid://pdvnsd36qtag" path="res://games/pong/scenes/ball/ball.tscn" id="3_ipsiw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nd40g"]
+
+[node name="ElementsInteraction" type="Node2D"]
+
+[node name="ScreenBoundaries" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(640, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_nd40g")
+
+[node name="Bottom" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(640, 720)
+shape = SubResource("WorldBoundaryShape2D_nd40g")
+
+[node name="Left" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(0, 360)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_nd40g")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(1280, 360)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_nd40g")
+
+[node name="Player" parent="." instance=ExtResource("1_7eo5l")]
+position = Vector2(50, 360)
+
+[node name="Opponent" parent="." node_paths=PackedStringArray("node_to_follow") instance=ExtResource("2_wecct")]
+position = Vector2(1230, 360)
+node_to_follow = NodePath("../Ball")
+
+[node name="Ball" parent="." instance=ExtResource("3_ipsiw")]
+position = Vector2(640, 360)

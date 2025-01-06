@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://kb0qtlwccxn8"]
+
+[ext_resource type="PackedScene" uid="uid://pdvnsd36qtag" path="res://games/pong/scenes/ball/ball.tscn" id="1_niy0x"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qcvu0"]
+
+[node name="BallMovement" type="Node2D"]
+
+[node name="ScreenBoundaries" type="StaticBody2D" parent="."]
+
+[node name="Top" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(640, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_qcvu0")
+
+[node name="Bottom" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(640, 720)
+shape = SubResource("WorldBoundaryShape2D_qcvu0")
+
+[node name="Left" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(0, 360)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_qcvu0")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(1280, 360)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_qcvu0")
+
+[node name="Ball" parent="." instance=ExtResource("1_niy0x")]
+position = Vector2(619, 304)

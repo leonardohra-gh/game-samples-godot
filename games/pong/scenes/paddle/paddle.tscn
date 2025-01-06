@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7w3k"]
 size = Vector2(25, 100)
 
-[node name="Paddle" type="CharacterBody2D"]
+[node name="Paddle" type="CharacterBody2D" groups=["paddle"]]
 motion_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,7 +19,9 @@ texture = ExtResource("1_uy3dc")
 [node name="Movement" type="Node" parent="." node_paths=PackedStringArray("behavior")]
 script = ExtResource("2_c3c6r")
 x_axis_allowed = false
+speed = 1000.0
 behavior = NodePath("Behavior")
+should_have_momentum = false
 
 [node name="Behavior" type="Node" parent="Movement"]
 script = ExtResource("3_edsb8")

@@ -23,6 +23,10 @@ window/size/viewport_height=720
 
 project/assembly_name="Game Samples"
 
+[global_group]
+
+paddle=""
+
 [input]
 
 move_up={

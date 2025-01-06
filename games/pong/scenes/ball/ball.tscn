@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://pdvnsd36qtag"]
+
+[ext_resource type="Script" path="res://games/pong/scenes/ball/ball.gd" id="1_efmul"]
+[ext_resource type="Texture2D" uid="uid://cajfnjt761o28" path="res://games/pong/scenes/ball/ball.png" id="1_md3qw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dr3jx"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rqu7"]
+radius = 17.0
+
+[node name="Ball" type="RigidBody2D"]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_dr3jx")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_efmul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_md3qw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6rqu7")
