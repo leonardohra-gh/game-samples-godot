@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://8hyl1lblos4u"]
+[gd_scene load_steps=4 format=3 uid="uid://8hyl1lblos4u"]
 
 [ext_resource type="Script" path="res://games/pong/scenes/paddle/paddle.gd" id="1_6hax0"]
 [ext_resource type="Texture2D" uid="uid://uffmtxdfnqop" path="res://games/pong/scenes/paddle/paddle.png" id="1_uy3dc"]
-[ext_resource type="Script" path="res://games/pong/scripts/movement/movement_2d.gd" id="2_c3c6r"]
-[ext_resource type="Script" path="res://games/pong/scripts/movement/movement_behavior.gd" id="3_edsb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7w3k"]
 size = Vector2(25, 100)
@@ -17,13 +15,3 @@ shape = SubResource("RectangleShape2D_a7w3k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uy3dc")
-
-[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("behavior")]
-script = ExtResource("2_c3c6r")
-x_axis_allowed = false
-speed = 600.0
-behavior = NodePath("Behavior")
-should_have_momentum = false
-
-[node name="Behavior" type="Node" parent="Movement"]
-script = ExtResource("3_edsb8")

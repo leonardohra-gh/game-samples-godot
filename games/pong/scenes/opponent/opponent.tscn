@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://8hyl1lblos4u" path="res://games/pong/scenes/paddle/paddle.tscn" id="1_7d6xt"]
 [ext_resource type="Script" path="res://games/pong/scenes/opponent/opponent.gd" id="2_c2mq5"]
-[ext_resource type="Script" path="res://games/pong/scripts/movement/follow_node.gd" id="3_tticg"]
+[ext_resource type="PackedScene" uid="uid://bjra8gvph0fi2" path="res://modules/2d/movement/follow_node_scene.tscn" id="3_73bji"]
 
 [node name="Opponent" instance=ExtResource("1_7d6xt")]
 script = ExtResource("2_c2mq5")
 
-[node name="Behavior" parent="Movement" index="0"]
-script = ExtResource("3_tticg")
-tolerance = 10.0
+[node name="Movement" parent="." index="2" instance=ExtResource("3_73bji")]
+x_axis_allowed = false
+speed = 600.0

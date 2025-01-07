@@ -1,4 +1,4 @@
-class_name FollowNode
+class_name FollowNodeBehavior
 extends MovementBehavior
 
 @export var node_to_follow: Node2D

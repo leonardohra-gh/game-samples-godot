@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjra8gvph0fi2"]
+
+[ext_resource type="PackedScene" uid="uid://dq550d8gt03mk" path="res://modules/2d/movement/movement_scene.tscn" id="1_g2nt5"]
+[ext_resource type="Script" path="res://modules/2d/movement/follow_node_behavior.gd" id="2_v3cc7"]
+
+[node name="Movement" instance=ExtResource("1_g2nt5")]
+
+[node name="Behavior" parent="." index="0"]
+script = ExtResource("2_v3cc7")
+tolerance = 0.0

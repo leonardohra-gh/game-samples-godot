@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy1hhtuasejp3"]
+
+[ext_resource type="PackedScene" uid="uid://dq550d8gt03mk" path="res://modules/2d/movement/movement_scene.tscn" id="1_dkhqo"]
+[ext_resource type="Script" path="res://modules/2d/movement/move_by_input.gd" id="2_rucfk"]
+
+[node name="Movement" instance=ExtResource("1_dkhqo")]
+
+[node name="Behavior" parent="." index="0"]
+script = ExtResource("2_rucfk")
