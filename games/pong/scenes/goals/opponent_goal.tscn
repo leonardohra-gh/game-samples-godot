@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://batj0xpbbbd7h"]
+
+[ext_resource type="PackedScene" uid="uid://cd4hpjwqe8n8e" path="res://games/pong/scenes/goals/goal.tscn" id="1_e7pv3"]
+[ext_resource type="Script" path="res://games/pong/scenes/goals/opponent_goal.gd" id="2_4xlt8"]
+
+[node name="OpponentGoal" instance=ExtResource("1_e7pv3")]
+script = ExtResource("2_4xlt8")

@@ -1,5 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsami6xksrn0v"]
+[gd_scene load_steps=2 format=3 uid="uid://blghw88atelmx"]
 
-[ext_resource type="PackedScene" uid="uid://bq6ilma8c4lul" path="res://games/pong/scenes/screen_boundaries/boundaries_1280_720.tscn" id="1_g7m7n"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_453dy"]
 
-[node name="ScreenBoundaries" instance=ExtResource("1_g7m7n")]
+[node name="PongBoundaries" type="StaticBody2D"]
+
+[node name="Top" type="CollisionShape2D" parent="."]
+position = Vector2(640, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_453dy")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+position = Vector2(640, 720)
+shape = SubResource("WorldBoundaryShape2D_453dy")

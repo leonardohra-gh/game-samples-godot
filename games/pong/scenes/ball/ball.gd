@@ -1,7 +1,11 @@
+class_name Ball
 extends RigidBody2D
 
-@export var speed: float = 200
+@export var initial_speed: float = 400
 @export var max_speed: float = 1000
+
+@onready var speed: float = initial_speed
+@onready var initial_position: Vector2 = position
 
 # The angles below are to respect to Vector2.RIGHT
 const DEGREE_45 = PI/4
@@ -11,32 +15,32 @@ const DEGREE_180 = PI
 const DEGREE_225 = -DEGREE_135
 const DEGREE_270 = -DEGREE_90
 const DEGREE_315 = -DEGREE_45
-# from 135º to 225º, 
-const angle_range_left = [DEGREE_135, DEGREE_225] 
-#from -45º to 45º
-const angle_range_right = [DEGREE_315, DEGREE_45]
-	
+
 func _ready() -> void:
+	connect("body_exited", _on_body_exited)
+	start()
+
+func start() -> void:
+	sleeping = true
+	global_transform.origin = initial_position
+	sleeping = false
+	speed = initial_speed
 	var direction = generate_random_direction()
 	linear_velocity = direction * speed
-	connect("body_exited", _on_body_exited)
-	
+
 func generate_random_direction() -> Vector2:
-	var angle_ranges = [angle_range_left, angle_range_right]
-	var direction = randi_range(0, 1)
-	var angle_range_for_direction = angle_ranges[direction]
-	var angle_chosen = randf_range(angle_range_for_direction[0], angle_range_for_direction[1])
-	return Vector2.RIGHT.rotated(angle_chosen)
+	var angle_chosen = randf_range(0, 2*PI)
+	var corrected_angle = correct_angle(angle_chosen)
+	return Vector2.RIGHT.rotated(corrected_angle)
 
 func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	linear_velocity = linear_velocity.normalized() * speed
+	pass
 
-func _on_body_exited(body: PhysicsBody2D) -> void:
-	if body.is_in_group("paddle"):
-		speed *= 1.1
-		if speed > max_speed: speed = max_speed
-		var paddle: Paddle = body as Paddle
-		paddle.reset_x()
+func _on_body_exited(node: Node2D) -> void:
+	if node.is_in_group("paddle"):
+		adjust_speed()
+		adjust_paddle_position(node)
 		redirect_ball()
 		
 func redirect_ball():
@@ -52,3 +56,12 @@ func correct_angle(angle: float) -> float:
 	else: if angle > DEGREE_225 and angle < DEGREE_270: return DEGREE_225 
 	else: if angle > DEGREE_270 and angle < DEGREE_315: return DEGREE_315 
 	return angle
+	
+func adjust_speed() -> void:
+	speed *= 1.1
+	if speed > max_speed: speed = max_speed
+
+func adjust_paddle_position(node: Node2D) -> void:
+	var paddle: Paddle = node as Paddle
+	paddle.reset_x()
+	

@@ -26,7 +26,7 @@ project/assembly_name="Game Samples"
 [global_group]
 
 paddle=""
-goal=""
+ball=""
 
 [input]
 
