@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsl1itarvlvo1"]
+
+[ext_resource type="Script" path="res://games/pong/scripts/hud.gd" id="1_2m5j4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jbbl7"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_8u6n8"]
+font_size = 40
+
+[node name="ScoreHUD" type="CanvasLayer"]
+script = ExtResource("1_2m5j4")
+
+[node name="PlayerScore" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -330.0
+offset_top = 20.0
+offset_right = -307.0
+offset_bottom = 75.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "0"
+label_settings = SubResource("LabelSettings_jbbl7")
+
+[node name="OpponentScore" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 310.0
+offset_top = 20.0
+offset_right = 333.0
+offset_bottom = 75.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "0"
+label_settings = SubResource("LabelSettings_8u6n8")
