@@ -51,6 +51,7 @@ func redirect_ball():
 	linear_velocity = direction * speed
 
 func correct_angle(angle: float) -> float:
+	if angle < 0: angle += 2*PI
 	if angle > DEGREE_45 and angle < DEGREE_90: return DEGREE_45
 	else: if angle > DEGREE_90 and angle < DEGREE_135: return DEGREE_135 
 	else: if angle > DEGREE_225 and angle < DEGREE_270: return DEGREE_225 
