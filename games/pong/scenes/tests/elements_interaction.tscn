@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tokah6duorkp"]
+[gd_scene load_steps=9 format=3 uid="uid://tokah6duorkp"]
 
 [ext_resource type="PackedScene" uid="uid://pe5kw6dt7xyi" path="res://games/pong/scenes/player/player.tscn" id="1_7eo5l"]
 [ext_resource type="Script" path="res://games/pong/scenes/tests/game_manager.gd" id="1_ccwx0"]
@@ -7,13 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://batj0xpbbbd7h" path="res://games/pong/scenes/goals/opponent_goal.tscn" id="2_kig7n"]
 [ext_resource type="PackedScene" uid="uid://j2plfxmkew2j" path="res://games/pong/scenes/opponent/opponent.tscn" id="2_wecct"]
 [ext_resource type="PackedScene" uid="uid://pdvnsd36qtag" path="res://games/pong/scenes/ball/ball.tscn" id="3_ipsiw"]
-[ext_resource type="Script" path="res://games/pong/scripts/hud.gd" id="5_iojhi"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_jbbl7"]
-font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_8u6n8"]
-font_size = 40
+[ext_resource type="PackedScene" uid="uid://dsl1itarvlvo1" path="res://games/pong/scenes/hud/score_hud.tscn" id="8_ga1he"]
 
 [node name="ElementsInteraction" type="Node2D" node_paths=PackedStringArray("player_goal", "opponent_goal", "hud", "ball")]
 script = ExtResource("1_ccwx0")
@@ -40,31 +34,4 @@ node_to_follow = NodePath("../Ball")
 [node name="Ball" parent="." instance=ExtResource("3_ipsiw")]
 position = Vector2(640, 360)
 
-[node name="ScoreHUD" type="CanvasLayer" parent="."]
-script = ExtResource("5_iojhi")
-
-[node name="PlayerScore" type="Label" parent="ScoreHUD"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -330.0
-offset_top = 20.0
-offset_right = -307.0
-offset_bottom = 75.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-text = "0"
-label_settings = SubResource("LabelSettings_jbbl7")
-
-[node name="OpponentScore" type="Label" parent="ScoreHUD"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 310.0
-offset_top = 20.0
-offset_right = 333.0
-offset_bottom = 75.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-text = "0"
-label_settings = SubResource("LabelSettings_8u6n8")
+[node name="ScoreHUD" parent="." instance=ExtResource("8_ga1he")]
