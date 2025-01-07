@@ -12,9 +12,9 @@ const DEGREE_45 = PI/4
 const DEGREE_90 = PI/2
 const DEGREE_135 = 3*PI/4
 const DEGREE_180 = PI
-const DEGREE_225 = -DEGREE_135
-const DEGREE_270 = -DEGREE_90
-const DEGREE_315 = -DEGREE_45
+const DEGREE_225 = 5*PI/4
+const DEGREE_270 = 3*PI/2
+const DEGREE_315 = 7*PI/4
 
 func _ready() -> void:
 	connect("body_exited", _on_body_exited)
